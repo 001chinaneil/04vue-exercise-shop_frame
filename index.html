@@ -9,4 +9,18 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+      var deviceW;
+      function computed() {
+          deviceW = document.documentElement.clientWidth || document.body.clientWidth;
+          if (deviceW > 750){
+              document.documentElement.style.fontSize = "50px";
+          };
+          document.documentElement.style.fontSize = (deviceW / 750) * 100 + "px";
+      }
+      computed();
+      window.addEventListener("resize", function () {
+          computed();
+      }, false);
+  </script>
 </html>
