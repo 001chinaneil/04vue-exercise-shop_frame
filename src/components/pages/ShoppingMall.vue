@@ -8,14 +8,13 @@
                     <input type="text" class="search-input"/>
                 </van-col>
                 <van-col span="5"><van-button size="mini">查找</van-button></van-col>
-
             </van-row>
         </div>
         <!--swipwer area-->
         <div class="swiper-area">
             <van-swipe :autoplay="1000">
-                <van-swipe-item v-for="(banner,index) in bannerPicArray" :key="index">
-                    <img :src="banner.imageUrl" width="100%"/>
+                <van-swipe-item v-for="(banner,index) in bannerPicArray"  :key="index">
+                    <img v-lazy="banner.imageUrl" width="100%"  />
                 </van-swipe-item>
             </van-swipe>
         </div>
@@ -23,8 +22,7 @@
 </template>
 
 <script>
-
-
+    import axios from 'axios';
     export default {
         data() {
             return {
@@ -61,9 +59,8 @@
         padding-left: .3rem;
     }
     .swiper-area{
-        width:20rem;
+        width:100%;
         clear:both;
-        overflow: hidden;
+        overflow: hidden;,clear:both;
     }
-
 </style>
